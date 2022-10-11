@@ -78,9 +78,7 @@
                 - 매개변수가 하나일 경우 괄호 생략 가능
                 - 바로 리턴하는 경우 중괄호 생략 가능
                     ~~~java
-                    (Integer x) -> {
-                        return x + 10;
-                    }
+                    x -> x + 10;
                     ~~~
     - BiFunction Interface
     - Functional Interface
