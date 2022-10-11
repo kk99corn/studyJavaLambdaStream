@@ -98,5 +98,12 @@
             
             BiFunction<Integer, Integer, Integer> add = (x, y) -> x + y;
             ~~~
-
     - Functional Interface
+        - 매개변수가 3개 이상 필요한 경우, 직접 interface를 만들어 구현이 가능하다.
+          ~~~java
+          @FunctionalInterface
+          public interface TriFunction<T, U, V, R> {
+            R apply(T t, U u, R r);
+          }
+          ~~~
+    
