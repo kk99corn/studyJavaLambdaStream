@@ -36,7 +36,7 @@
             - 함수/메서드의 매개변수(parameter)로서 전달할 수 있는가?
             - 함수/메서드의 반환값(return)이 될 수 있는가?
             - 변수에 담을 수 있는가?
-              
+
               -> 함수 자체를 Object 형태로 나타낸다면?? 위에 언급한 모든것들이 가능해짐
     - 왜 이걸 알아야 하는가?
         - 함수형 프로그래밍을 통해 우리가 얻는 것들
@@ -47,7 +47,7 @@
                 - 확정성에 용이
             - 패러다임의 전환
                 - Stream, Optional 등을 활용하여, 깔끔하고 간결한 코드 작성이 가능
-    
+
 
 - Part 3 람다 표현식(Lambda Expression)
     - Function Interface
@@ -81,4 +81,22 @@
                     x -> x + 10;
                     ~~~
     - BiFunction Interface
+        - 매개변수가 두 개일 때
+          ~~~java
+          // T: apply parameter type
+          // U: apply parameter type
+          // R: apply return type
+          @FunctionalInterface
+          public interface BiFunction<T, U, R> {
+                R apply(T t, U u);
+          }
+          ~~~
+            ~~~java
+            BiFunction<Integer, Integer, Integer> add = (Integer x, Integer y) -> {
+                return x + y;
+            };
+            
+            BiFunction<Integer, Integer, Integer> add = (x, y) -> x + y;
+            ~~~
+
     - Functional Interface
