@@ -47,3 +47,40 @@
                 - 확정성에 용이
             - 패러다임의 전환
                 - Stream, Optional 등을 활용하여, 깔끔하고 간결한 코드 작성이 가능
+    
+
+- Part 3 람다 표현식(Lambda Expression)
+    - Function Interface
+        - java.util.function
+          ~~~java
+          // T: apply parameter type
+          // R: apply return type
+          @FunctionalInterface
+          public interface Function<T, R> {
+                R apply(T t);
+          }
+          ~~~
+    - 한 걸음씩 람다로
+        - 함수(function)의 구성 요소
+            - 함수의 이름
+            - 반환값의 타입(return type)
+            - 매개변수(parameters)
+            - 함수의 내용(body{})
+        - 람다 표현식(Lambda Expression)의 구성 요소
+            - 이름이 없는 함수(익명 함수: Anonymous function)
+                ~~~java
+                (Integer x) -> {
+                    return x + 10;
+                }
+                ~~~
+            - 더 단순하게
+                - 매개변수의 타입이 유추 가능할 경우 타입 생략 가능
+                - 매개변수가 하나일 경우 괄호 생략 가능
+                - 바로 리턴하는 경우 중괄호 생략 가능
+                    ~~~java
+                    (Integer x) -> {
+                        return x + 10;
+                    }
+                    ~~~
+    - BiFunction Interface
+    - Functional Interface
