@@ -146,3 +146,4 @@
             - Predicate.or(Predicate2): Predicate | Predicate2 결과 
             - Predicate.and(Predicate2): Predicate & Predicate2 결과
     - Comparator
+        - Comparator는 오브젝트 비교를 위한 Functional Interface
