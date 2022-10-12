@@ -110,6 +110,7 @@
 
 - Part 4 Functional Interface
     - Supplier
+        - Supplier는 Input 파라미터 없이 무언가를 return하기만 하는 Functional Interface
         - Supplier 구현 방법
           ~~~java
           // 문자열을 반환하는 Supplier
@@ -127,6 +128,12 @@
           }
           ~~~
     - Consumer
+        - Consumer는 Supplier와 반대로 무언가를 input으로 받기만하고 return이 없는 Functional Interface
+        - Consumer 구현 방법
+            ~~~java
+            Consumer<Double> doubleConsumer = x -> System.out.println("Processing double: " + x);
+            ~~~
     - BiConsumer
+        - 2개의 타입 인자를 받는 Consumer
     - Predicate
     - Comparator
