@@ -136,4 +136,13 @@
     - BiConsumer
         - 2개의 타입 인자를 받는 Consumer
     - Predicate
+        - Predicate는 Input 파라미터를 받아서 boolean 값을 return하는 Functional Interface
+        - Predicate 구현 방법
+          ~~~java
+          Predicate<Integer> predicate = x -> x > 0;
+          ~~~
+        - 단 하나의 Predicate를 만들어서 여러가지 함수(negate, or, and)를 사용 가능 
+            - Predicate.negate(): 결과 not 연산
+            - Predicate.or(Predicate2): Predicate | Predicate2 결과 
+            - Predicate.and(Predicate2): Predicate & Predicate2 결과
     - Comparator
