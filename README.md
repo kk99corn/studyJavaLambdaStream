@@ -141,9 +141,48 @@
           ~~~java
           Predicate<Integer> predicate = x -> x > 0;
           ~~~
-        - 단 하나의 Predicate를 만들어서 여러가지 함수(negate, or, and)를 사용 가능 
+        - 단 하나의 Predicate를 만들어서 여러가지 함수(negate, or, and)를 사용 가능
             - Predicate.negate(): 결과 not 연산
-            - Predicate.or(Predicate2): Predicate | Predicate2 결과 
+            - Predicate.or(Predicate2): Predicate | Predicate2 결과
             - Predicate.and(Predicate2): Predicate & Predicate2 결과
     - Comparator
         - Comparator는 오브젝트 비교를 위한 Functional Interface
+
+
+- Part 5 Method Reference
+    - Method Reference
+        - 기존에 이미 선언되어있는 메서드를 지정하고 싶을 때
+        - :: 오퍼레이터 사용
+        - 생략이 많기 때문에 사용할 메서드의 매개변수의 타입과 리턴 타입을 미리 숙지해야함
+        - 메서드 레퍼런스의 4가지 케이스
+            ~~~java
+            // 1. 클래스의 static method를 지정할 때
+            ClassName::staticMethodName
+          
+            // 2. 선언 된 객체의 instance method를 지정할 때
+            objectName::instanceMethodName
+          
+            // 3. 객체의 instance method를 지정할 때
+            ClassName::instanceMethodName
+          
+            // 4. 클래스의 constructor를 지정할 때
+            ClassName::new
+            ~~~
+            - 1. 클래스의 static method를 지정할 때
+                - ClassName::staticMethodName
+                - 클래스의 static method(정적 메서드)를 지정할 때
+                    ~~~java
+                    Function<String, Integer> str2Int = Integer::parseInt;
+                    int five = str2Int.apply("5");
+                    ~~~
+            - 2. 선언 된 객체의 instance method를 지정할 때
+                - objectName::instanceMethodName
+                - 이미 선언되어 있는 객체의 instance method를 지정할 때
+                    ~~~java
+                    String str = "hello";
+                    Predicate<String> equalsToHello = str::equals;
+                    boolean helloEqualsworld = equalsToHello.test("world");
+                    ~~~
+    - Method Reference2
+    - Constructor Reference
+    
