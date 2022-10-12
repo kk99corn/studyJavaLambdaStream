@@ -106,4 +106,27 @@
             R apply(T t, U u, R r);
           }
           ~~~
-    
+
+
+- Part 4 Functional Interface
+    - Supplier
+        - Supplier 구현 방법
+          ~~~java
+          // 문자열을 반환하는 Supplier
+          Supplier<String> myStringSupplier = () -> "hello word";
+          
+          // 랜덤한 더블을 반환하는 Supplier
+          Supplier<Double> myRandomSupplier = Math::random;
+          ~~~
+        - Supplier를 파라미터 인자로 사용하는 법
+          ~~~java
+          public static void printRandomDoubles(Supplier<Double> randomSup, int count) {
+            for (int i = 0; i < count; i++) {
+                System.out.println(randomSup.get());
+             }
+          }
+          ~~~
+    - Consumer
+    - BiConsumer
+    - Predicate
+    - Comparator
