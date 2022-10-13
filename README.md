@@ -198,4 +198,9 @@
               printUserFiled(users, User::getId);
               ~~~
     - Constructor Reference
-    
+        - 4. 클래스의 constructor를 지정할 때
+            - ClassName::new
+                ~~~java
+                // BiFunction<Integer, String, User> userCreator = (id, name) -> new User(id, name);
+                BiFunction<Integer, String, User> userCreator = User::new;
+                ~~~
