@@ -184,5 +184,18 @@
                     boolean helloEqualsworld = equalsToHello.test("world");
                     ~~~
     - Method Reference2
+      - 3. 객체의 instance method를 지정할 때
+          - ClassName::instanceMethodName
+          - 클래스의 instance method(인스턴스 메서드)를 지정할 때
+              ~~~java
+              Function<String, Integer> strLength = String::length;
+              System.out.println(strLength.apply("Hello world!"));
+        
+              BiPredicate<String, String> equalsString = String::equals;
+              System.out.println(equalsString.test("Hello", "World"));
+
+              printUserFiled(users, (User user) -> user.getId());
+              printUserFiled(users, User::getId);
+              ~~~
     - Constructor Reference
     
