@@ -188,9 +188,7 @@
                     boolean helloEqualsworld = equalsToHello.test("world");
                     ~~~
     - Method Reference2
-        -
-            3. 객체의 instance method를 지정할 때
-
+        - 3. 객체의 instance method를 지정할 때
             - ClassName::instanceMethodName
             - 클래스의 instance method(인스턴스 메서드)를 지정할 때
                 ~~~java
@@ -204,9 +202,7 @@
                 printUserFiled(users, User::getId);
                 ~~~
     - Constructor Reference
-        -
-            4. 클래스의 constructor를 지정할 때
-
+        - 4. 클래스의 constructor를 지정할 때
             - ClassName::new
                 ~~~java
                 // BiFunction<Integer, String, User> userCreator = (id, name) -> new User(id, name);
@@ -220,30 +216,36 @@
         - 컬렉션(Collection) 형태로 구성된 데이터를 람다를 이용해 간결하고 직관적으로 프로세스 하게 해줌
         - for, while 등을 이용하던 기존 loop을 대체
         - 손쉽게 병렬 처리를 할 수 있게 해줌
-    - stream to list
+        - stream to list
+            ~~~java
+                // stream to list(Collectors.toList())
+                // 스트림에 있는 데이터 출력하는 방법(리스트로 변경)
+            Stream<String> nameStream = Stream.of("Alice", "Bob", "Charlie");
+          
+            List<String> nameCollect = nameStream.collect(Collectors.toList());
+            System.out.println(nameCollect);
+            ~~~
+      - array to stream
         ~~~java
-	    	// stream to list(Collectors.toList())
-		    // 스트림에 있는 데이터 출력하는 방법(리스트로 변경)
-		Stream<String> nameStream = Stream.of("Alice", "Bob", "Charlie");
-      
-		List<String> nameCollect = nameStream.collect(Collectors.toList());
-		System.out.println(nameCollect);
+        // array to stream(Arrays.stream())
+        String[] cityArr = new String[]{"San Jose", "Seoul", "Tokyo"};
+        Stream<String> cityStream = Arrays.stream(cityArr);
+        
+        List<String> cityCollect = cityStream.collect(Collectors.toList());
+        System.out.println(cityCollect);
         ~~~
-  - array to stream
-    ~~~java
-    // array to stream(Arrays.stream())
-    String[] cityArr = new String[]{"San Jose", "Seoul", "Tokyo"};
-    Stream<String> cityStream = Arrays.stream(cityArr);
-    
-    List<String> cityCollect = cityStream.collect(Collectors.toList());
-    System.out.println(cityCollect);
-    ~~~
-  - collection to stream
-    ~~~java
-    // collection to stream(Set.stream())
-    Set<Integer> numberSet = new HashSet<>(Arrays.asList(3, 5, 7));
-    Stream<Integer> numberStream = numberSet.stream();
-    
-    List<Integer> numberCollect = numberStream.collect(Collectors.toList());
-    System.out.println(numberCollect);
-    ~~~
+      - collection to stream
+        ~~~java
+        // collection to stream(Set.stream())
+        Set<Integer> numberSet = new HashSet<>(Arrays.asList(3, 5, 7));
+        Stream<Integer> numberStream = numberSet.stream();
+        
+        List<Integer> numberCollect = numberStream.collect(Collectors.toList());
+        System.out.println(numberCollect);
+        ~~~
+    - Filter
+        - 만족하는 데이터만 걸러내는데 사용
+        - Predicate에 true를 반환하는 데이터만 존재하는 stream을 리턴
+            ~~~java
+            Stream<T> filter(Predicate<? super T> predicate);
+            ~~~
