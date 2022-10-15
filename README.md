@@ -255,3 +255,10 @@
             ~~~java
             <R> Stream<R> map(Function<? super T, ? extends R> mapper);
             ~~~
+    - Stream의 구성요소
+        - 스트림 파이프라인
+        - 스트림 구성 요소
+            - Source(소스): 컬렉션 배열 등
+            - Intermediate Operations(중간 처리): 0개 이상의 filter, map 등의 중간처리
+            - Terminal Operation(종결 처리): Collect, reduce 등
+        - 여러가지의 중간 처리를 이어 붙이는 것이 가능
