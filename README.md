@@ -262,3 +262,11 @@
             - Intermediate Operations(중간 처리): 0개 이상의 filter, map 등의 중간처리
             - Terminal Operation(종결 처리): Collect, reduce 등
         - 여러가지의 중간 처리를 이어 붙이는 것이 가능
+    - 데이터의 정렬
+        - Sorted
+        - 데이터가 순서대로 정렬된 stream을 리턴
+        - 데이터의 종류에 따라 Comparator가 필요할 수 있음
+            ~~~java
+            Stream<T> sorted();
+            Stream<T> sorted(Comparator<? super T> comparator);
+            ~~~
