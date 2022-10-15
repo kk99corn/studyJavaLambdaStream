@@ -270,3 +270,9 @@
             Stream<T> sorted();
             Stream<T> sorted(Comparator<? super T> comparator);
             ~~~
+    - 중복제거
+        - Distinct
+        - 중복된느 데이터가 제거된 stream을 리턴
+            ~~~java
+            Stream<T> distinct();
+            ~~~
