@@ -276,3 +276,10 @@
             ~~~java
             Stream<T> distinct();
             ~~~
+  - FlatMap
+      - 스트림의 스트림을 납작하게
+      - Map + Flatten
+      - 데이터에 함수를 적용한 후 중첩된 stream을 연결하여 하나의 stream으로 리턴
+          ~~~java
+          <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper);
+          ~~~
