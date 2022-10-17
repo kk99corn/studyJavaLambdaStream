@@ -283,3 +283,32 @@
           ~~~java
           <R> Stream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper);
           ~~~
+
+
+- Part 7 Optional
+    - 있을 수도 있고 없을 수도 있다
+    - Null일수도, 아닐수도있는 object를 담는 상자
+        ~~~java
+        java.util.Optional<T>
+      
+        Optional<String> maybeString = Optional.of("Hello world");
+        String string = maybeString.get();
+        ~~~
+    - Optional
+        - 안에 있는 값을 확인하고 꺼내는 법
+            ~~~java
+            // 안의 오브젝트가 null인지 아닌지 체크, Null이 아닐 시 true
+            public boolean isPresent();
+          
+            // Optional 안의 값을 추출. Null이라면 에러
+            public T get();
+          
+            // Optional이 null이 아니라면 Optional안의 값을, null이라면 other로 공급된 값을 리턴
+            public T orElse(T other);
+          
+            // Optional이 null이 아니라면 Optional안의 값을, null이라면 supplier로 공급된 값을 리턴
+            public T orElseGet(Supplier<? extends T> supplier);
+          
+            // Optional이 null이 아니라면 Optional안의 값을, null이라면 exceptionSupplier로 공급된 exception을 던짐
+            public <X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X;
+            ~~~
