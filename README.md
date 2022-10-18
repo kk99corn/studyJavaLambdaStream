@@ -312,3 +312,14 @@
             // Optional이 null이 아니라면 Optional안의 값을, null이라면 exceptionSupplier로 공급된 exception을 던짐
             public <X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X;
             ~~~
+        - Optional 응용
+            ~~~java
+            // Optional이 null이 아니라면 action을 실행
+            public void ifPresent(Consumer<? super T> action);
+          
+            // Optional이 null이 아니라면 mapper를 적용
+            public <U> Optional<U> map(Function<? super T, ? extends U> mapper);
+          
+            // mapper의 리턴 값이 또 다른 Optional이라면 한 단계의 Optional이 되도록 납작학 ㅔ해줌
+            public <U> Optional<U> flatMap(Function<? super T, ? extends Optional<? extends U>> mapper);
+            ~~~
