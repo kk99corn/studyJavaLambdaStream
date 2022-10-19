@@ -323,3 +323,19 @@
             // mapper의 리턴 값이 또 다른 Optional이라면 한 단계의 Optional이 되도록 납작학 ㅔ해줌
             public <U> Optional<U> flatMap(Function<? super T, ? extends Optional<? extends U>> mapper);
             ~~~
+
+
+- Part 8 Advanced Stream
+    - 여러가지 종결처리
+        - Max / Min / Count
+            - Stream 안의 데이터의 최대값 / 최소값 / 개수
+                ~~~java
+                // max - Stream안의 데이터 중 최대값을 반환, Stream이 비어있다면 Optional을 반환
+                Optional<T> max(Comparator<? super T> comparator);
+              
+                // min - Stream안의 데이터 중 최소값을 반환, Stream이 비어있다면 Optional을 반환
+                Optional<T> min(Comparator<? super T> comparator);
+              
+                // count - Stream 안의 데이터 개수를 반환
+                long count();
+                ~~~
