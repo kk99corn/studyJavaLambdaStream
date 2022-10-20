@@ -339,3 +339,11 @@
                 // count - Stream 안의 데이터 개수를 반환
                 long count();
                 ~~~
+        - allMatch / anyMatch
+            ~~~java
+            // allMatch - Stream 안의 모든 데이터가 predicate을 만족하면 true
+            boolean allMatch(Predicate<? super T> predicate);
+          
+            // anyMatch - Stream 안의 데이터 중 하나라도 predicate을 만족하면 true
+            boolean allMatch(Predicate<? super T> predicate);
+            ~~~
