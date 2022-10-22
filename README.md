@@ -347,3 +347,11 @@
             // anyMatch - Stream 안의 데이터 중 하나라도 predicate을 만족하면 true
             boolean allMatch(Predicate<? super T> predicate);
             ~~~
+        - findFirst / findAny
+            ~~~java
+            // findFirst - Stream 안의 첫번째 데이터를 반환. Stream이 비어있다면 비어있는 Optional을 반환
+            Optional<T> findFirst();
+          
+            // findAny - Stream 안의 아무 데이터나 반환. 순서가 중요하지 않고 Parallel Stream을 사용할 때 최적화를 할 수 있다. 마찬가지로 Stream이 비어있다면 비어있는 Optional을 반환
+            Optional<T> findAny();
+            ~~~
