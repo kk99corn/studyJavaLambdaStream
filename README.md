@@ -355,3 +355,16 @@
             // findAny - Stream 안의 아무 데이터나 반환. 순서가 중요하지 않고 Parallel Stream을 사용할 때 최적화를 할 수 있다. 마찬가지로 Stream이 비어있다면 비어있는 Optional을 반환
             Optional<T> findAny();
             ~~~
+        - Reduce
+            - 주어진 함수를 반복 적용해 Stream안의 데이터를 하나의 값으로 합치는 작업
+            - Max / Min / Count도 사실 reduce의 일종
+                ~~~java
+                // reduce1 - 주어진 accumulator를 이용해 데이터를 합침. Stream이 비어있을 경우 빈 Optional을 반환
+                Optional<T> reduce(BinaryOperator<T> accumulator);
+              
+                // reduce2 - 주어진 초기값과 accumulator를 이용. 초기값이 있기 때문에 항상 반환값이 존재
+                T reduce(T identity, BinaryOperator<T> accumulator);
+              
+                // reduce3 - 합치는 과정에서 타입이 바뀔 경우 사용. Map + reduce로 대체 가능
+                <U> U reduce<U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner);
+                ~~~
