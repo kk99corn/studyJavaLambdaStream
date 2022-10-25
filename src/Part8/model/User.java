@@ -59,8 +59,9 @@ public class User {
 		return friendUserIds;
 	}
 
-	public void setFriendUserIds(List<Integer> friendUserIds) {
+	public User setFriendUserIds(List<Integer> friendUserIds) {
 		this.friendUserIds = friendUserIds;
+		return this;
 	}
 
 	@Override
