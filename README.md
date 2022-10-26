@@ -368,3 +368,25 @@
                 // reduce3 - 합치는 과정에서 타입이 바뀔 경우 사용. Map + reduce로 대체 가능
                 <U> U reduce<U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner);
                 ~~~
+        - Collectors
+            ~~~java
+            // Collectors.toList()
+            List<Integer> numberList = Stream.of(3, 5, -3, 3, 4, 5)
+            .collect(Collectors.toList());
+      
+            // Collectors.toSet()
+            Set<Integer> numberSet = Stream.of(3, 5, -3, 3, 4, 5)
+            .collect(Collectors.toSet());
+      
+            // Collectors.mapping()
+            List<Integer> numberList2 = Stream.of(3, 5, -3, 3, 4, 5)
+            .collect(Collectors.mapping(x -> Math.abs(x), Collectors.toList()));
+      
+            // Collectors.mapping()
+            Set<Integer> numberSet2 = Stream.of(3, 5, -3, 3, 4, 5)
+            .collect(Collectors.mapping(x -> Math.abs(x), Collectors.toSet()));
+      
+            // Collectors.reducing()
+            Integer sum = Stream.of(3, 5, -3, 3, 4, 5)
+            .collect(Collectors.reducing(0, (x, y) -> x + y));
+            ~~~
