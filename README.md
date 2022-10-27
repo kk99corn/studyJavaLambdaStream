@@ -390,3 +390,13 @@
             Integer sum = Stream.of(3, 5, -3, 3, 4, 5)
             .collect(Collectors.reducing(0, (x, y) -> x + y));
             ~~~
+        - toMap
+            ~~~java
+            public static <T, K, U> Collector<T, ?, Map<K, U>> toMap(
+                Function<? super T, ? extends K> keyMapper,
+                Function<? super T, ? extends U> valueMapper
+            ) 
+            ~~~
+            - Stream 안의 데이터를 map의 형태로 반환해주는 collector
+            - keyMapper - 데이터를 map의 key로 변환하는 Function
+            - valueMapper - 데이터를 map의 value로 변환하는 Function
