@@ -400,3 +400,10 @@
             - Stream 안의 데이터를 map의 형태로 반환해주는 collector
             - keyMapper - 데이터를 map의 key로 변환하는 Function
             - valueMapper - 데이터를 map의 value로 변환하는 Function
+        - Grouping By
+            ~~~java
+            public static <T, K> Collector<T, ?, Map<K, List<T>>>
+                groupingBy(Function<? super T, ? extends K> classifier)
+            ~~~
+            - Stream안의 데이터에 classifier를 적용했을 때 결과값이 같은 값끼리 List로 모아서 Map의 형태로 반환해주는 collector 이 때 key는 classifier의 결과값, value는 그 결과값을 갖는 데이터들.
+            - 예를 들어 stream에 {1, 2, 5, 7, 9, 12, 13}이 있을 때 classifier가 x -> x % 3이라면 반환되는 map은 {0 = [9, 12], 1 = [1, 7, 13], 2 = [2, 5]}
