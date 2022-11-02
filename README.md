@@ -420,3 +420,9 @@
             ~~~
             - GroupingBy와 유사하지만 Function 대신 Predicate을 받아 true와 false 두 key가 존재하는 map을 반환하는 collector
             - 마찬가지로 downstream collector를 넘겨 List 이외의 형태로 map의 value를 만드는 것 역시 가능
+        - For Each
+            ~~~java
+            void forEach(Consumer<? super T> action);
+            ~~~
+            - 제공된 action을 Stream의 각 데이터에 적용해주는 종결 처리 메서드
+            - java의 iterable 인터페이스에도 forEach가 있기 때문에 Stream의 중간 처리가 필요없다면 iterable collection(Set, List 등)에서 바로 쓰는 것도 가능
