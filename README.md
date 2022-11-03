@@ -426,3 +426,20 @@
             ~~~
             - 제공된 action을 Stream의 각 데이터에 적용해주는 종결 처리 메서드
             - java의 iterable 인터페이스에도 forEach가 있기 때문에 Stream의 중간 처리가 필요없다면 iterable collection(Set, List 등)에서 바로 쓰는 것도 가능
+        - Parallel Stream
+            ~~~java
+            List<Integer> numbers = Arrays.asList(1, 2, 3);
+            Stream<Integer> parallelStream = numbers.parallelStream();
+            Stream<Integer> parallelStream2 = numbers.stream().parallel();
+            ~~~
+            - 여러개의 스레드를 사용하여 stream의 처리 과정을 병렬화(parallelize)
+            - 중간 과정은 병렬처리 되지만 순서가 있는 Stream의 경우 종결 처리 했을때의 결과물이 기존의 순차적 처리와 일치하도록 종결 처리과정에서 조정된다
+            - 즉 List로 collect한다면 순서가 항상 올바르게 나온다는 것.
+            - 장점
+                - 굉장히 간단하게 병렬 처리를 사용할 수 있게 해준다.
+                - 속도가 비약적으로 빨라 질 수 있다.
+            - 단점
+                - 항상 속도가 빨라지는 것은 아니다.
+                - 공통으로 사용하는 리소스가 있을 경우 잘못된 결과가 나오거나 아예 오류가 날 수 있다(Deadlock)
+                - 이를 막기 위해 mutex, semaphore등 병럴 처리 기술을 이용하면 순차처리보다 느려질수있다.
+        
